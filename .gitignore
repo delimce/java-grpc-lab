@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Zed editor ###
+.zed/
+*.log
+.factorypath
+.project
+.projectpath
+.classpath
