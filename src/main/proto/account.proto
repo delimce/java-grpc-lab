@@ -41,7 +41,7 @@ message UserAccount {
 
 // Request message containing user account deletion data
 message DeleteAccountRequest {
-  string uid = 1;
+  string uid      = 1;
   string password = 2;
 }
 
