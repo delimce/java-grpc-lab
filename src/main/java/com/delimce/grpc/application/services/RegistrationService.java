@@ -1,5 +1,7 @@
 package com.delimce.grpc.application.services;
 
+import javax.management.InvalidAttributeValueException;
+
 import org.springframework.stereotype.Service;
 
 import com.delimce.grpc.account.RegistrationRequest;
@@ -23,7 +25,7 @@ public class RegistrationService implements RegistrationServiceInterface {
 
         try {
             RegistrationData registrationData = new RegistrationData(request).getData();
-        } catch (DomainException e) {
+        } catch (InvalidAttributeValueException | DomainException e) {
             log.error("Registration failed: {}", e.getMessage());
             response = RegistrationResponse.newBuilder()
                     .setSuccess(false)

@@ -1,5 +1,7 @@
 package com.delimce.grpc.domain.dtos.account;
 
+import javax.management.InvalidAttributeValueException;
+
 import com.delimce.grpc.account.RegistrationRequest;
 import com.delimce.grpc.domain.dtos.commons.ValidationData;
 import com.delimce.grpc.domain.exceptions.DomainException;
@@ -25,9 +27,9 @@ public class RegistrationData extends ValidationData {
                 emailIsValid(email);
     }
 
-    public RegistrationData getData() throws DomainException {
+    public RegistrationData getData() throws InvalidAttributeValueException, DomainException {
         if (!isValid()) {
-            throw new DomainException("Invalid registration name, surname or email", null);
+            throw new InvalidAttributeValueException("Invalid registration name, last name, or email.");
         }
         return this;
     }
