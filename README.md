@@ -4,7 +4,7 @@ This project is a simple Java application that demonstrates how to set up a gRPC
 ## Prerequisites
 - Java 17 or higher
 - Maven 3.6 or higher
-- grpcurl 
+- grpcurl
 
 ## Building the Application
 To build the application, run the following command in the project root directory:
@@ -21,7 +21,7 @@ You can run the application using the Spring Boot Maven plugin:
 Alternatively, you can run the packaged JAR file:
 ```bash
 java -jar target/*.jar
-``` 
+```
 ## Testing the GRPC Service
 Once the server is running, you can test the Ping service using `grpcurl`. First,
 list the available services:
@@ -31,5 +31,5 @@ grpcurl -plaintext localhost:9090 list
 
 test ping service:
 ```bash
-grpcurl -plaintext -d '{}' localhost:9090 health.PingService/Ping
+grpcurl -plaintext -d '{}' localhost:9090 health.HealthService/Ping
 ```
