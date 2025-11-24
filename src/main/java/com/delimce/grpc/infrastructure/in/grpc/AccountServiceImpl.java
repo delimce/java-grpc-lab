@@ -29,6 +29,10 @@ public class AccountServiceImpl extends AccountServiceGrpc.AccountServiceImplBas
             var response = registrationService.register(request);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+
+        } catch (io.grpc.StatusRuntimeException e) {
+            log.error("Registration failed: {}", e.getMessage());
+            responseObserver.onError(e);
         } catch (Exception e) {
             log.error(ERROR_MESSAGE, e);
             responseObserver.onError(io.grpc.Status.UNAVAILABLE
